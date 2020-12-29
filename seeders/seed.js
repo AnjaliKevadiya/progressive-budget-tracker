@@ -24,3 +24,5 @@ var transactionSeed = [
     value: 150,
   },
 ];
+
+db.Transaction.deleteMany({});
