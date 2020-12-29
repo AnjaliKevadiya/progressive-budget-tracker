@@ -50,6 +50,12 @@
     //request a database instance
     const request = indexedDB.open("budgetDB", 1);
 
+    //create an object store inside the onupgradeneeded method
+    request.onupgradeneeded = ({ target }) => {
+      const db = target.result;
+      const objectStore = db.createObjectStore("transaction");
+    };
+
     //this request returns a result
     request.onsuccess = event => {
       console.log(request.result);
