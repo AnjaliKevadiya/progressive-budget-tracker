@@ -1,4 +1,3 @@
-console.log("Hello from service worker!");
 const FILES_TO_CACHE = [
   "/",
   "/index.html",
@@ -15,6 +14,11 @@ const DATA_CACHE_NAME = "data-cache-v1";
 
 //install
 self.addEventListener("install", function (evt) {
+  //   //pre cache
+  //   evt.waitUntil(
+  //     caches.open(DATA_CACHE_NAME).then((cache) => cache.add("/api/transaction"))
+  //   );
+
   // pre cache all static assets
   evt.waitUntil(
     caches.open(CACHE_NAME).then((cache) => {
